@@ -26,10 +26,10 @@ public class Student {
 
     }
 
-    public Student(String email, String lastName, String firstName) {
-        this.email = email;
+    public Student(String lastName, String firstName, String email) {
         this.lastName = lastName;
         this.firstName = firstName;
+        this.email = email;
     }
 
     // define getters and setters
