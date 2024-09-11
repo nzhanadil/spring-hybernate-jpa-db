@@ -20,13 +20,29 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			// createStudent(studentDAO);
-
 			// readStudent(studentDAO);
-
 			//queryForStudents(studentDAO);
-
-			queryForStudentsByLastName(studentDAO);
+			//queryForStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// retrieve student based on the id: primary key
+		int studentId = 1;
+		System.out.println("Getting student with id: " + studentId);
+		Student student = studentDAO.findById(studentId);
+
+		// change the first name to Scooby
+		System.out.println("setting first name");
+		student.setFirstName("John");
+
+		// update the student
+		System.out.println("Updating student");
+		studentDAO.update(student);
+
+		// display the updated student
+		System.out.println("Updated student: " + student);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
